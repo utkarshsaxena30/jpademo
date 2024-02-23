@@ -22,8 +22,13 @@ public class JpademoApplication {
 			// createInstructor(instructorDAO);
 			// findInstructorById(instructorDAO);
 			// deleteInstructorById(instructorDAO);
-			findInstructorDetailById(instructorDetailDAO);
+			// findInstructorDetailById(instructorDetailDAO);
+			deleteInstructorDetailById(instructorDetailDAO);
 		};
+	}
+
+	private void deleteInstructorDetailById(InstructorDetailDAO instructorDetailDAO) {
+		instructorDetailDAO.deleteInstructorDetailById(3);
 	}
 
 	private void findInstructorDetailById(InstructorDetailDAO instructorDetailDAO) {

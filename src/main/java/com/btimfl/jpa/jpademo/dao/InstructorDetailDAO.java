@@ -4,4 +4,6 @@ import com.btimfl.jpa.jpademo.entity.InstructorDetail;
 
 public interface InstructorDetailDAO {
     InstructorDetail findInstructorDetailById(int id);
+
+    void deleteInstructorDetailById(int id);
 }
