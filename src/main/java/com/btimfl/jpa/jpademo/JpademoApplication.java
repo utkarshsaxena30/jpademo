@@ -1,6 +1,7 @@
 package com.btimfl.jpa.jpademo;
 
 import com.btimfl.jpa.jpademo.dao.InstructorDAO;
+import com.btimfl.jpa.jpademo.dao.InstructorDetailDAO;
 import com.btimfl.jpa.jpademo.entity.Instructor;
 import com.btimfl.jpa.jpademo.entity.InstructorDetail;
 import org.springframework.boot.CommandLineRunner;
@@ -16,12 +17,19 @@ public class JpademoApplication {
 	}
 
 	@Bean
-	public CommandLineRunner commandLineRunner(InstructorDAO instructorDAO) {
+	public CommandLineRunner commandLineRunner(InstructorDAO instructorDAO, InstructorDetailDAO instructorDetailDAO) {
 		return runner -> {
 			// createInstructor(instructorDAO);
 			// findInstructorById(instructorDAO);
-			deleteInstructorById(instructorDAO);
+			// deleteInstructorById(instructorDAO);
+			findInstructorDetailById(instructorDetailDAO);
 		};
+	}
+
+	private void findInstructorDetailById(InstructorDetailDAO instructorDetailDAO) {
+		InstructorDetail instructorDetail = instructorDetailDAO.findInstructorDetailById(3);
+		System.out.println(instructorDetail);
+		System.out.println(instructorDetail.getInstructor());
 	}
 
 	private void deleteInstructorById(InstructorDAO instructorDAO) {
