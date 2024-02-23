@@ -1,5 +1,8 @@
 package com.btimfl.jpa.jpademo;
 
+import com.btimfl.jpa.jpademo.dao.InstructorDAO;
+import com.btimfl.jpa.jpademo.entity.Instructor;
+import com.btimfl.jpa.jpademo.entity.InstructorDetail;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,9 +16,16 @@ public class JpademoApplication {
 	}
 
 	@Bean
-	public CommandLineRunner commandLineRunner() {
+	public CommandLineRunner commandLineRunner(InstructorDAO instructorDAO) {
 		return runner -> {
-			System.out.println("Hello World");
+			createInstructor(instructorDAO);
 		};
+	}
+
+	private void createInstructor(InstructorDAO instructorDAO) {
+		Instructor instructor = new Instructor("John", "Doe", "john@doe.com");
+		instructor.setInstructorDetail(new InstructorDetail("john_doe_youtube", "kayaking"));
+
+		instructorDAO.save(instructor);
 	}
 }

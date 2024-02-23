@@ -20,20 +20,17 @@ public class Instructor {
     @Column(name = "email")
     private String email;
 
-    @OneToOne
-    @Cascade(org.hibernate.annotations.CascadeType.PERSIST)
-    @Column(name = "instructor_detail")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "instructor_detail_id")
     private InstructorDetail instructorDetail;
 
     public Instructor() {
     }
 
-    public Instructor(Integer id, String firstName, String lastName, String email, InstructorDetail instructorDetail) {
-        this.id = id;
+    public Instructor(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.instructorDetail = instructorDetail;
     }
 
     public Integer getId() {
