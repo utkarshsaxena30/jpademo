@@ -17,4 +17,9 @@ public class InstructorDAOImpl implements  InstructorDAO{
     public void save(Instructor instructor) {
         entityManager.persist(instructor);
     }
+
+    @Override
+    public Instructor findInstructorById(int id) {
+        return entityManager.find(Instructor.class, id);
+    }
 }

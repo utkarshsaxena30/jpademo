@@ -18,8 +18,14 @@ public class JpademoApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner(InstructorDAO instructorDAO) {
 		return runner -> {
-			createInstructor(instructorDAO);
+			// createInstructor(instructorDAO);
+			findInstructorById(instructorDAO);
 		};
+	}
+
+	private void findInstructorById(InstructorDAO instructorDAO) {
+		Instructor instructor = instructorDAO.findInstructorById(1);
+		System.out.println(instructor);
 	}
 
 	private void createInstructor(InstructorDAO instructorDAO) {
