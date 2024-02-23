@@ -19,8 +19,13 @@ public class JpademoApplication {
 	public CommandLineRunner commandLineRunner(InstructorDAO instructorDAO) {
 		return runner -> {
 			// createInstructor(instructorDAO);
-			findInstructorById(instructorDAO);
+			// findInstructorById(instructorDAO);
+			deleteInstructorById(instructorDAO);
 		};
+	}
+
+	private void deleteInstructorById(InstructorDAO instructorDAO) {
+		instructorDAO.deleteInstructorById(1);
 	}
 
 	private void findInstructorById(InstructorDAO instructorDAO) {
