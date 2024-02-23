@@ -28,11 +28,11 @@ public class JpademoApplication {
 	}
 
 	private void deleteInstructorDetailById(InstructorDetailDAO instructorDetailDAO) {
-		instructorDetailDAO.deleteInstructorDetailById(3);
+		instructorDetailDAO.deleteInstructorDetailById(4);
 	}
 
 	private void findInstructorDetailById(InstructorDetailDAO instructorDetailDAO) {
-		InstructorDetail instructorDetail = instructorDetailDAO.findInstructorDetailById(3);
+		InstructorDetail instructorDetail = instructorDetailDAO.findInstructorDetailById(4);
 		System.out.println(instructorDetail);
 		System.out.println(instructorDetail.getInstructor());
 	}

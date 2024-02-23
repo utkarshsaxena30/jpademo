@@ -22,6 +22,7 @@ public class InstructorDetailDAOImpl implements InstructorDetailDAO{
     @Transactional
     public void deleteInstructorDetailById(int id) {
         InstructorDetail instructorDetail = findInstructorDetailById(id);
+        instructorDetail.getInstructor().setInstructorDetail(null);
         entityManager.remove(instructorDetail);
     }
 }
